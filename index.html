@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #canvas{
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+            background: #fffacc;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>Physics Engine</title>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">
+            <div class="flex-container">
+                <div class="flex-item">
+                    <button class="button" onclick=clickMove()>Move</button>
+                </div>
+                <div class="flex-item">
+                    <button class="button" onclick=clickDelete()>Delete</button>
+                </div>
+                <div class="flex-item">
+                    <button class="button" onclick=clickGravity()>Toggle gravity</button>
+                </div>
+                <div class="flex-item">
+                    <button class="button" onclick=pause()>Start / Pause</button>
+                </div>
+                <div class="flex-item">
+                    <button class="button" onclick=generateCloth()>Generate cloth</button>
+                </div>
+                <div class="flex-item">
+                    <button class="button" onclick=drawPoints()>Draw points</button>
+                </div>
+            </div>
+        </div>
+        <div class="flex-item">
+            <canvas id="canvas" tabindex=0 width="640" height="640"></canvas>
+        </div>
+        <div class="flex-item">
+            <div class="flex-container">
+                <div class="flex-item" id="clothSizeXContainer">
+                    <div class="slidecontainer">
+                        <input type="range" min="5" max="30" value="15" class="range" id="clothSizeXRange">
+                        <p>Cloth columns: <span id="clothSizeX"></span></p>
+                    </div>
+                </div>
+                <div class="flex-item" id="clothSizeYContainer">
+                    <div class="slidecontainer">
+                        <input type="range" min="5" max="30" value="15" class="range" id="clothSizeYRange">
+                        <p>Cloth rows: <span id="clothSizeY"></span></p>
+                    </div>
+                </div>
+                <div class="flex-item" id="distanceXContainer">
+                    <div class="slidecontainer">
+                        <input type="range" min="5" max="75" value="20" class="range" id="distanceXRange">
+                        <p>Distance in row: <span id="distanceX"></span></p>
+                    </div>
+                </div>
+                <div class="flex-item" id="distanceYContainer">
+                    <div class="slidecontainer">
+                        <input type="range" min="5" max="75" value="20" class="range" id="distanceYRange">
+                        <p>Distance in column: <span id="distanceY"></span></p>
+                    </div>
+                </div>
+                <div class="flex-item" id="springContainer">
+                    <div class="slidecontainer">
+                        <input type="range" min="50" max="1000" value="200" class="range" id="springRange">
+                        <p>Spring strength: <span id="spring"></span></p>
+                    </div>
+                </div>
+                <div class="flex-item" id="colorContainer">
+                    <input type="color" id="color" name="color" value="#e66465" class="color">
+                    <label for="color" class="color">Point color</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="physics.js"></script>
+    <script src="userInput.js"></script>
+    <script src="setup.js"></script>
+</body>
+</html>
